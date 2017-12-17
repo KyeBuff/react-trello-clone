@@ -1,0 +1,104 @@
+body {
+	background-image: linear-gradient(#0086D7, #0068A7);
+	background-size: cover;
+	height: 100vh;
+	width: 100vw;
+}
+
+/* Generics */
+
+a, label {
+	font-family: Dosis;
+	text-decoration: none;
+}
+
+/* Main */
+
+.container { 
+	box-sizing: border-box;
+	padding: 3em;
+}
+
+/* Buttons */
+
+.btn-home {
+	display: block;
+
+	height: 75px;
+	width: 75px;
+
+	background-image: url(assets/images/home.png);
+	background-size: cover;
+}
+
+.btn-board {
+	display: block;
+	float: left;
+
+	box-sizing: border-box;
+	margin: 2% 1%;
+	padding: 2em .5em;
+	width: 23%;
+
+	background-color: white;
+	box-shadow: 3px 5px 10px #005486;
+
+	color: #434343;
+	font-size: 1.5em;
+	letter-spacing: .050em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.btn-board--new {
+	background-color: #51BC70;
+	color: white;
+}
+
+/* Nav */
+
+.boards-menu {
+	margin-top: 10vh;
+
+	overflow: auto;
+}
+
+/* Forms */
+
+label, input {
+	display: block;
+	width: 100%;
+
+	color: #434343;
+	font-size: 1em;
+	letter-spacing: .050em;
+}
+
+input {
+	box-sizing: border-box;
+	margin: 1.5em 0;
+	padding: .5em;
+
+}
+
+.form-new-board {
+	margin: 2% 0;
+	padding: 1em;
+	width: 25%;
+
+	background-color: white;
+
+	overflow: auto;
+}
+
+.new-board-submit {
+
+	margin-bottom: 0;
+	padding: .5em;
+
+	background-color: #51BC70;
+
+	color: white;
+	text-transform: uppercase;
+}
+

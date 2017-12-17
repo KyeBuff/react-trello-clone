@@ -12,6 +12,7 @@ const addNewBoard = (state, data) => {
 			{
 				boardName: data,
 				id: lastId++,
+				lists: [],
 			}
 		]
 	};
