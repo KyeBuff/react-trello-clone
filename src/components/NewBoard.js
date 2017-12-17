@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './forms/Form';
+import { Link } from 'react-router-dom';
 
 const fields = [
 	{
@@ -11,7 +12,8 @@ const fields = [
 
 const NewBoard = (props) => (
 	<section>
-		<Form fields={fields} submitText="Create" />
+		<Form fields={fields} submitText="Create" onSubmit={props.onSubmit} />
+		<Link to="/">Back</Link>
 	</section>
 );
 
