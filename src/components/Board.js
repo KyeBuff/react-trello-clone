@@ -25,11 +25,11 @@ class Board extends Component {
 	}	
 
 	render() {
-		const { lists } = this.props.board;
+		const { lists, id } = this.props.board;
 		return (
 			<section className="section-board">
 				{	lists ? 
-						lists.map(list => <BoardList name={list.name}/>)
+						lists.map(list => <BoardList key={list.id} name={list.name} boardId={id} listId={list.id} />)
 					: null
 				}
 				{ !this.state.addingList ? 

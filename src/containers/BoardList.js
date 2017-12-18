@@ -1,15 +1,10 @@
 import BoardList from '../components/lists/BoardList';
 import { connect } from 'react-redux';
+import { addListItem } from '../actions/actions';
 
-// const mapStateToProps = state => {
-// 	return {
-// 		boards: state.boards,
-// 	}
-// }	
-
-const mapDispatchToProps = state => {
+const mapDispatchToProps = (dispatch) => {
 	return {
-		boards: state.boards,
+		onSubmit: (fields, boardId, listId) => dispatch(addListItem(fields[0].value, boardId, listId)),
 	}
 }	
 

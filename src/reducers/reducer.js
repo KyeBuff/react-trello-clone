@@ -5,10 +5,12 @@ const initialState = {
 			id: 100,
 			lists: [
 				{
+					id: 1,
 					name: 'My list',
 				},
 				{
-					name: 'My list',
+					id: 2,
+					name: 'My 2nd list',
 				}
 			]
 		}
@@ -16,6 +18,7 @@ const initialState = {
 }
 
 let lastId = 1;
+let lastListId = 1;
 
 const addNewBoard = (state, data) => {
 	return {
@@ -34,6 +37,7 @@ const addNewBoard = (state, data) => {
 const addListToBoard = (state, listName, boardId) => {
 
 	const list = {
+		id: lastListId++,
 		name: listName,
 		items: [],
 	}
@@ -51,10 +55,15 @@ const addListToBoard = (state, listName, boardId) => {
 	};
 }
 
+const addListItem = (state, itemValue, boardId, listId) => {
+	return state;
+}
+
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 		case '[Boards] addNewBoard': return addNewBoard(state, action.data);
 		case '[Boards][Board] addListToBoard': return addListToBoard(state, action.listName, action.boardId);
+		case '[Boards][Board][List] addListItem': return addListItem(state, action.itemValue, action.boardId, action.listId);
 		default: 
 			return state;
 	}

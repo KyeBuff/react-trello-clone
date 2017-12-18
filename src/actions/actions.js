@@ -1,6 +1,7 @@
 const actionTypes = {
 	ADD_NEW_BOARD: '[Boards] addNewBoard',
 	ADD_LIST_TO_BOARD: '[Boards][Board] addListToBoard',
+	ADD_LIST_ITEM: '[Boards][Board][List] addListItem',
 }
 
 const addNewBoard = (data) => ({
@@ -14,7 +15,15 @@ const addListToBoard = (listName, boardId) => ({
 	boardId,
 });
 
+const addListItem = (itemValue, boardId, listId) => ({
+	type: actionTypes.ADD_LIST_ITEM,
+	itemValue,
+	boardId,
+	listId,
+});
+
 export {
 	addNewBoard,
-	addListToBoard
+	addListToBoard,
+	addListItem
 }

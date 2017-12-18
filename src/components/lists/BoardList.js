@@ -13,7 +13,7 @@ const fields = [
 const BoardList = (props) => (
 	<section className="board-list-section">
 		<h2>{props.name}</h2>
-		<Form fields={fields} btnRequired={false} onSubmit={props.onSubmit} />
+		<Form fields={fields} btnRequired={false} onSubmit={(fields) => props.onSubmit(fields, props.boardId, props.listId)} />
 		<ul className="board-list">
 		</ul>
 	</section>
