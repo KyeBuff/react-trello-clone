@@ -18,9 +18,32 @@ const addNewBoard = (state, data) => {
 	};
 }
 
+const addListToBoard = (state, listName, boardId) => {
+
+	const list = {
+		name: listName,
+		items: [],
+	}
+
+	const withListArr = state.boards.map(board => {
+		if(board.id === +boardId) {
+			board.lists.push(list)
+		}
+		return board;
+	});
+
+	console.log(withListArr);
+
+	return {
+		...state,
+		boards: withListArr,
+	};
+}
+
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 		case '[Boards] addNewBoard': return addNewBoard(state, action.data);
+		case '[Boards][Board] addListToBoard': return addListToBoard(state, action.listName, action.boardId);
 		default: 
 			return state;
 	}

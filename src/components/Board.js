@@ -11,6 +11,7 @@ class Board extends Component {
 			addingList: false,
 		}
 		this.showListForm = this.showListForm.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	showListForm() {
@@ -18,7 +19,8 @@ class Board extends Component {
 	}
 
 	onSubmit(fields) {
-		console.log(fields);
+		const listName = fields[0].value;
+		this.props.onAddList(listName);
 	}	
 
 	render() {

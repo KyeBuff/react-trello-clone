@@ -55,6 +55,22 @@ a, label {
 	color: white;
 }
 
+.btn-add-list {
+	margin: 2% 0;
+	padding: 1em;
+	width: 25%;
+
+	background-color: white;
+	border: none;
+
+	color: #434343;
+	font-size: 1.25em;
+	letter-spacing: .050em;
+	text-align: center;
+	text-transform: uppercase;
+
+}
+
 /* Nav */
 
 .boards-menu {

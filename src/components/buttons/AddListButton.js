@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddListButton = (props) => (
-	<button onClick={props.onClick}>Add a list...</button>
+	<button className="btn-add-list" onClick={props.onClick}>Add a list...</button>
 );
 
 export default AddListButton;
