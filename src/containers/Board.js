@@ -4,6 +4,15 @@ import {addListToBoard} from '../actions/actions';
 
 const mapStateToProps = (state, {boardId}) => {
 	return {
+		board: state.boards.reduce((ob, board) => {
+			if(board.id === +boardId) {
+				return {
+					...ob,
+					...board
+				}
+			}
+			return ob;
+		}, {}),
 	}
 }	
 

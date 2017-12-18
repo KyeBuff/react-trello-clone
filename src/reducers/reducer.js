@@ -1,5 +1,18 @@
 const initialState = {
-	boards: []
+	boards: [
+		{
+			boardName: "To do list",
+			id: 100,
+			lists: [
+				{
+					name: 'My list',
+				},
+				{
+					name: 'My list',
+				}
+			]
+		}
+	]
 }
 
 let lastId = 1;
@@ -31,8 +44,6 @@ const addListToBoard = (state, listName, boardId) => {
 		}
 		return board;
 	});
-
-	console.log(withListArr);
 
 	return {
 		...state,

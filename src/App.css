@@ -12,6 +12,10 @@ a, label {
 	text-decoration: none;
 }
 
+ul {
+	list-style: none;
+}
+
 /* Main */
 
 .container { 
@@ -56,9 +60,10 @@ a, label {
 }
 
 .btn-add-list {
-	margin: 2% 0;
+	min-height: 150px;
+	margin: 2% 1%;
 	padding: 1em;
-	width: 25%;
+	width: 23%;
 
 	background-color: white;
 	border: none;
@@ -118,3 +123,34 @@ input {
 	text-transform: uppercase;
 }
 
+/* Board lists */
+
+.section-board { 
+	overflow: auto;
+}
+
+.board-list-section {
+	float: left;
+
+	margin: 2% 1%;
+	min-height: 150px;
+	padding: 1em;
+	width: 23%;
+
+	background-color: white;
+	border: none;
+	box-sizing: border-box;
+
+	color: #434343;
+	font-size: 1.25em;
+	letter-spacing: .050em;
+	text-align: center;
+	text-transform: uppercase;
+
+}
+
+.board-list-section h2 {
+	margin: 0;
+	font-family: Dosis;
+	font-size: 1.25em;
+}

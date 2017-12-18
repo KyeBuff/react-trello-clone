@@ -22,9 +22,6 @@ class Form extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-
-		
-
 		this.props.onSubmit(this.state.fields);
 	}
 
@@ -45,7 +42,11 @@ class Form extends Component {
 						)
 					})
 				}
-				<input type="submit" value={this.props.submitText} className={this.props.submitClass}/>
+				{ this.props.btnRequired ? 
+					<input type="submit" value={this.props.submitText} className={this.props.submitClass}/>
+					:
+						null
+				}
 			</form>
 		);	
 	}

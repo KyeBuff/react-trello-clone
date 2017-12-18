@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Form from './forms/Form';
 import AddListButton from './buttons/AddListButton';
+import BoardList from '../containers/BoardList';
 
 const fields = [{label: 'What shall we call your list?', type: 'text', value:''}];
 
@@ -24,19 +25,24 @@ class Board extends Component {
 	}	
 
 	render() {
+		const { lists } = this.props.board;
 		return (
 			<section className="section-board">
+				{	lists ? 
+						lists.map(list => <BoardList name={list.name}/>)
+					: null
+				}
 				{ !this.state.addingList ? 
 					<AddListButton onClick={this.showListForm} />
 					:
 					<section className="form-new-board">
-						<Form fields={fields} submitText="Add list" onSubmit={this.onSubmit} submitClass="new-board-submit" />
+						<Form fields={fields} submitText="Add list" onSubmit={this.onSubmit} submitClass="new-board-submit" btnRequired={true} />
 					</section>
 				}
 			</section>
 		)
 	}
-	
+						
 }
 
 export default Board;
