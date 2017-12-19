@@ -7,10 +7,12 @@ const initialState = {
 				{
 					id: 1,
 					name: 'My list',
+					items: [],
 				},
 				{
 					id: 2,
 					name: 'My 2nd list',
+					items: [],
 				}
 			]
 		}
@@ -56,6 +58,17 @@ const addListToBoard = (state, listName, boardId) => {
 }
 
 const addListItem = (state, itemValue, boardId, listId) => {
+
+	const board = state.boards.find(board => board.id === boardId);
+
+	console.log(board);
+
+	const list = board.lists.find(list => list.id === listId);
+
+	list.items.push(itemValue);
+
+	console.log(list);
+
 	return state;
 }
 

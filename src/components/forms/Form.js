@@ -22,7 +22,10 @@ class Form extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-		this.props.onSubmit(this.state.fields);
+
+		if(this.state.fields.every(field => field.value)) {
+			this.props.onSubmit(this.state.fields);
+		}
 	}
 
 	render() {
