@@ -13,8 +13,9 @@ class Form extends Component {
 
 	onChange(e, i) {
 		const val = e.target.value;
-		const fields = this.state.fields.slice();
+		const fields = [...this.state.fields];
 
+		//Update the value of field we're targeting using index
 		fields[i].value = val;
 
 		this.setState({fields});
@@ -25,8 +26,10 @@ class Form extends Component {
 
 		if(this.state.fields.every(field => field.value)) {
 			this.props.onSubmit(this.state.fields);
+
+			//Set all field values to empty on submit
 			this.setState({fields: this.state.fields.map(field => {
-				field.value = "";
+				field.value = null;
 				return field;
 			})})
 		}
@@ -34,7 +37,7 @@ class Form extends Component {
 
 	render() {
 		return (
-			<form action="" method="" onSubmit={this.onSubmit}>
+			<form onSubmit={this.onSubmit}>
 				{
 					this.state.fields.map((field, i) => {
 						return (
@@ -50,7 +53,11 @@ class Form extends Component {
 					})
 				}
 				{ this.props.btnRequired ? 
-					<input type="submit" value={this.props.submitText} className={this.props.submitClass}/>
+					<input 
+						type="submit" 
+						value={this.props.submitText} 
+						className={this.props.submitClass}
+					/>
 					:
 						null
 				}
