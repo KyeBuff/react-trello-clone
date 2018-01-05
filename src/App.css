@@ -269,6 +269,19 @@ input {
 	background-size: cover;
 }
 
+.page-not-found__message {
+	color: white;	
+	font-family: Dosis;
+	font-size: 1.5em;
+	text-align: left;
+}
+
+.page-not-found__link {
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 @media (max-width: 768px) {
 
 	.container {

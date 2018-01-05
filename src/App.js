@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Boards from './containers/Boards';
 import Board from './containers/Board';
+import FourOhFour from './components/FourOhFour';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/boards/:id" render={ ({match}) => (
             <Board boardId={match.params.id} />
           )} />
+          <FourOhFour />
         </Switch>
       </div>
     );

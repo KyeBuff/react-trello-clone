@@ -68,11 +68,9 @@ const addListItem = (state, itemValue, boardId, listId) => {
 	}
 }
 
-const setItemComplete = (state, itemId, listId, boardId) => {
+const toggleItemComplete = (state, itemId, listId, boardId) => {
 
 	const boards = [...state.boards];
-
-	console.log(itemId, listId, boardId);
 
 	const board = boards.find(board => board.id === boardId);
 
@@ -99,7 +97,7 @@ const setItemComplete = (state, itemId, listId, boardId) => {
 
 	return {
 		...state,
-		newBoards,
+		boards: newBoards,
 	}
 }
 
@@ -108,7 +106,7 @@ const reducer = (state=initialState, action) => {
 		case '[Boards] addNewBoard': return addNewBoard(state, action.data);
 		case '[Boards][Board] addListToBoard': return addListToBoard(state, action.listName, action.boardId);
 		case '[Boards][Board][List] addListItem': return addListItem(state, action.itemValue, action.boardId, action.listId);
-		case '[Boards][Board][List][Items][Item] setItemComplete': return setItemComplete(state, action.itemId, action.listId, action.boardId);
+		case '[Boards][Board][List][Items][Item] toggleItemComplete': return toggleItemComplete(state, action.itemId, action.listId, action.boardId);
 		default: 
 			return state;
 	}
