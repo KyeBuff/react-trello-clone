@@ -6,7 +6,6 @@ import {
     Link,
 } from "react-router-dom";
 import Boards from './containers/Boards';
-import NewBoard from './containers/NewBoard';
 import Board from './containers/Board';
 
 class App extends Component {
@@ -19,7 +18,6 @@ class App extends Component {
         </header> 
         <Switch>
           <Route exact path="/" component={Boards} />
-          <Route path="/new" component={NewBoard} />
           <Route path="/boards/:id" render={ ({match}) => (
             <Board boardId={match.params.id} />
           )} />

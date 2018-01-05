@@ -12,6 +12,10 @@ a, label {
 	text-decoration: none;
 }
 
+button, input[type="submit"] {
+	cursor: pointer;
+}
+
 ul {
 	list-style: none;
 	padding: 0;
@@ -118,6 +122,8 @@ input {
 }
 
 .form-new-board {
+	position: relative;
+
 	margin: 2% 0;
 	padding: 1em;
 	width: 25%;
@@ -138,13 +144,29 @@ input {
 	text-transform: uppercase;
 }
 
+.new-board-cancel {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	border: none;
+	padding: .5em;
+
+	background-color: transparent;
+
+	color: black;
+	font-size: 1.5em;
+	text-transform: uppercase;
+
+}
+
 /* Board section */
 
 .section-board h2 {
 
 	color: white;
 	font-family: Dosis;
-	font-size: 3em;
+	font-size: 2em;
 	text-align: center;
 	text-transform: uppercase;
 }

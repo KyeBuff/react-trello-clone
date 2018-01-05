@@ -12,11 +12,16 @@ class Board extends Component {
 			addingList: false,
 		}
 		this.showListForm = this.showListForm.bind(this);
+		this.hideListForm = this.hideListForm.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	showListForm() {
 		this.setState({addingList: true});
+	}
+	
+	hideListForm() {
+		this.setState({addingList: false});
 	}
 
 	onSubmit(fields) {
@@ -29,7 +34,7 @@ class Board extends Component {
 		const { lists, id, boardName } = this.props.board;
 		return (
 			<section className="section-board">
-				<h2>{boardName}</h2>
+				<h2>Board: {boardName}</h2>
 				<div className="board-lists">
 				{	lists ? 
 						lists.map(list => {
@@ -47,6 +52,12 @@ class Board extends Component {
 					:
 					<section className="form-new-board">
 						<Form fields={fields} submitText="Add list" onSubmit={this.onSubmit} submitClass="new-board-submit" btnRequired={true} />
+							<button 
+								className="new-board-cancel"
+								onClick={this.hideListForm}
+							>
+							X
+							</button>
 					</section>
 				}
 				</div>

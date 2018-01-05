@@ -5,7 +5,7 @@ import {addNewBoard} from '../actions/actions';
 const mapDispatchToProps = dispatch => {
 	return {
 		//send board name to reducer
-		onSubmit: (data) => dispatch(addNewBoard(data[0].value)),
+		addBoard: (data) => dispatch(addNewBoard(data[0].value)),
 	}
 }	
 
