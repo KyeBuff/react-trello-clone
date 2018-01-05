@@ -1,22 +1,5 @@
 const initialState = {
-	boards: [
-		{
-			boardName: "To do list",
-			id: 100,
-			lists: [
-				{
-					id: 1,
-					name: 'My list',
-					items: [],
-				},
-				{
-					id: 2,
-					name: 'My 2nd list',
-					items: [],
-				}
-			]
-		}
-	]
+	boards: [],
 }
 
 let lastId = 1;
@@ -72,9 +55,45 @@ const addListItem = (state, itemValue, boardId, listId) => {
 	const listItem = {
 		id: listItemId++,
 		value: itemValue,
+		complete: false,
 	}
 
 	list.items.push(listItem);
+
+	const newBoards = state.boards.map(b => b.id === boardId ? board : b);
+
+	return {
+		...state,
+		boards: newBoards,
+	}
+}
+
+const setItemComplete = (state, itemId, listId, boardId) => {
+
+	const boards = [...state.boards];
+
+	console.log(itemId, listId, boardId);
+
+	const board = boards.find(board => board.id === boardId);
+
+	let boardLists = board.lists;
+
+	const list = boardLists.find(list => list.id === listId);
+
+	const listItems = list.items;
+
+	const newListItems = listItems.map(item => {
+		if(item.id === itemId) {
+			item.complete = !item.complete;
+		}
+		return item;
+	});
+
+	list.items = newListItems;
+
+	board.lists = boardLists.map(l => l.id === listId ? list : l);
+
+	// TOOD finish reducer, id 100 is fine.
 
 	const newBoards = state.boards.map(b => b.id === boardId ? board : b);
 
@@ -89,6 +108,7 @@ const reducer = (state=initialState, action) => {
 		case '[Boards] addNewBoard': return addNewBoard(state, action.data);
 		case '[Boards][Board] addListToBoard': return addListToBoard(state, action.listName, action.boardId);
 		case '[Boards][Board][List] addListItem': return addListItem(state, action.itemValue, action.boardId, action.listId);
+		case '[Boards][Board][List][Items][Item] setItemComplete': return setItemComplete(state, action.itemId, action.listId, action.boardId);
 		default: 
 			return state;
 	}

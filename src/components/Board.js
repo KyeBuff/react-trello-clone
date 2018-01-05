@@ -22,6 +22,7 @@ class Board extends Component {
 	onSubmit(fields) {
 		const listName = fields[0].value;
 		this.props.onAddList(listName);
+		this.setState({addingList: false});
 	}	
 
 	render() {

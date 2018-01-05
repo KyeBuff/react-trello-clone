@@ -2,6 +2,7 @@ const actionTypes = {
 	ADD_NEW_BOARD: '[Boards] addNewBoard',
 	ADD_LIST_TO_BOARD: '[Boards][Board] addListToBoard',
 	ADD_LIST_ITEM: '[Boards][Board][List] addListItem',
+	SET_ITEM_COMPLETE: '[Boards][Board][List][Items][Item] setItemComplete',
 }
 
 const addNewBoard = (data) => ({
@@ -22,8 +23,16 @@ const addListItem = (itemValue, boardId, listId) => ({
 	listId,
 });
 
+const setItemComplete = (itemId, listId, boardId) => ({
+	type: actionTypes.SET_ITEM_COMPLETE,
+	itemId,
+	listId,
+	boardId,
+});
+
 export {
 	addNewBoard,
 	addListToBoard,
-	addListItem
+	addListItem,
+	setItemComplete
 }

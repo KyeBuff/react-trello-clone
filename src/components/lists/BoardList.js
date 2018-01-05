@@ -15,7 +15,7 @@ const BoardList = (props) => {
 		<h2>{props.name}</h2>
 		<Form fields={fields} btnRequired={false} onSubmit={(fields) => props.onSubmit(fields, props.boardId, props.listId)} />
 		<ul className="board-list">
-			{props.listItems.map(item => <ListItem key={item.id} value={item.value}/>)}
+			{props.listItems.map(item => <ListItem key={item.id} value={item.value} complete={item.complete} onClick={ () => {console.log(props.boardId); props.completeItem(item.id, props.listId, props.boardId) }}/>)}
 		</ul>
 	</section>)
 }

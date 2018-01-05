@@ -155,3 +155,31 @@ input {
 	font-family: Dosis;
 	font-size: 1.25em;
 }
+
+.board-list-item {
+	margin: 5% 0;
+	padding: 3% 5%;
+
+	background-color: lightgreen;
+
+	font-family: Dosis;
+	font-size: .75em;
+	text-align: left;
+	text-transform: lowercase;
+}
+
+.board-list-item-complete {
+	background-color: gray;
+}
+
+.btn-item {
+
+}
+
+.btn-item-complete {
+
+}
+
+.btn-item-incomplete {
+
+}
