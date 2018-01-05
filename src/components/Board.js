@@ -38,7 +38,7 @@ class Board extends Component {
 			<div>
 				{id ? 
 				<section className="section-board">
-					<h2>Board: {boardName}</h2>
+					<h2>{boardName}</h2>
 					<div className="board-lists">
 					{	lists ? 
 							lists.map(list => {
@@ -52,16 +52,23 @@ class Board extends Component {
 						: null
 					}
 					{ !this.state.addingList ? 
+						/*Toggle between button to add list and form to add new list*/
 						<AddListButton onClick={this.showListForm} />
 						:
 						<section className="form-new-board">
-							<Form fields={fields} submitText="Add list" onSubmit={this.onSubmit} submitClass="new-board-submit" btnRequired={true} />
-								<button 
-									className="new-board-cancel"
-									onClick={this.hideListForm}
-								>
-								X
-								</button>
+							<Form 
+								fields={fields} 
+								submitText="Add list" 
+								onSubmit={this.onSubmit} 
+								submitClass="new-board-submit" 
+								btnRequired={true}
+							/>
+							<button 
+								className="new-board-cancel"
+								onClick={this.hideListForm}
+							>
+							X
+							</button>
 						</section>
 					}
 					</div>

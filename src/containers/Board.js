@@ -1,18 +1,11 @@
 import Board from '../components/Board';
 import { connect } from 'react-redux';
 import {addListToBoard} from '../actions/actions';
+import {fetchBoard} from '../reducers/reducer';
 
 const mapStateToProps = (state, {boardId}) => {
 	return {
-		board: state.boards.reduce((ob, board) => {
-			if(board.id === +boardId) {
-				return {
-					...ob,
-					...board
-				}
-			}
-			return ob;
-		}, {}),
+		board: fetchBoard(state, boardId),
 	}
 }	
 

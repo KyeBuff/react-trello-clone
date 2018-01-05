@@ -9,31 +9,28 @@ const fields = [
 		value: '',
 	}
 ];
-
-const BoardList = (props) => {
 	// On submit/toggle takes the ids of their specifics to ensure targeting of correct part of state
-	return (
-		<section className="board-list-section">
-			<h2>{props.name}</h2>
-			<Form 
-				fields={fields} 
-				btnRequired={false} 
-				onSubmit={(fields) => props.onSubmit(fields, props.boardId, props.listId)} 
-			/>
-			<ul className="board-list">
-				{props.listItems.map(item => {
-					return <ListItem 
-						key={item.id} 
-						value={item.value} 
-						complete={item.complete} 
-						onClick={ () => props.toggleItemComplete(item.id, props.listId, props.boardId) }
-					/>
-					}
-				)}
-			</ul>
-		</section>
-	)
-}
+const BoardList = ({name, onSubmit, boardId, listId, listItems, toggleItemComplete}) => (
+	<section className="board-list-section">
+		<h2>{name}</h2>
+		<Form 
+			fields={fields} 
+			btnRequired={false} 
+			onSubmit={(fields) => onSubmit(fields, boardId, listId)} 
+		/>
+		<ul className="board-list">
+			{listItems.map(({id, value, complete}) => {
+				return <ListItem 
+					key={id} 
+					value={value} 
+					complete={complete} 
+					onClick={ () => toggleItemComplete(id, listId, boardId) }
+				/>
+				}
+			)}
+		</ul>
+	</section>
+)
 
 export default BoardList;
 

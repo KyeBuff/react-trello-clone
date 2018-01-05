@@ -11,7 +11,13 @@ const fields = [
 
 const NewBoard = (props) => (
 	<section className="form-new-board">
-		<Form fields={fields} submitText="Create" onSubmit={props.onSubmit} submitClass="new-board-submit" btnRequired={true} />
+		<Form 
+			fields={fields} 
+			submitText="Create" 
+			onSubmit={props.onSubmit} 
+			submitClass="new-board-submit" 
+			btnRequired={true} 
+		/>
 	</section>
 );
 

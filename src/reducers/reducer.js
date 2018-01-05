@@ -91,8 +91,6 @@ const toggleItemComplete = (state, itemId, listId, boardId) => {
 
 	board.lists = boardLists.map(l => l.id === listId ? list : l);
 
-	// TOOD finish reducer, id 100 is fine.
-
 	const newBoards = state.boards.map(b => b.id === boardId ? board : b);
 
 	return {
@@ -112,4 +110,22 @@ const reducer = (state=initialState, action) => {
 	}
 }
 
+// Selectors
+
+const fetchBoard = (state, boardId) => {
+	return state.boards.reduce((ob, board) => {
+		if(board.id === +boardId) {
+			return {
+				...ob,
+				...board
+			}
+		}
+		return ob;
+	});
+}
+
 export default reducer;
+
+export {
+	fetchBoard
+}

@@ -22,6 +22,7 @@ class Boards extends Component {
 		this.setState({addingBoard: true})
 	}
 
+	//List of boards here with board links
 	render() {
 		return (
 			<nav className="boards-menu">
