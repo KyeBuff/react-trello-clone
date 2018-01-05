@@ -116,37 +116,12 @@ const reducer = (state=initialState, action) => {
 
 const selectBoards = state => state.boards;
 
-const selectBoard = (state, boardId) => {
-	return state.boards.reduce((ob, board) => {
-		if(board.id === +boardId) {
-			return {
-				...ob,
-				...board
-			}
-		}
-		return ob;
-	}, []);
-}
+const selectBoard = (state, boardId) => state.boards.find(board => board.id === +boardId);
 
-const selectListItems = (state, listId, boardId) => {
-	return state.boards.reduce((arr, board) => {
-		if(board.id === boardId) {
-			return [
-				...arr,
-				...board.lists.reduce((arr, list) => {
-					if(list.id === listId) {
-						return [
-							...arr,
-							...list.items,
-						]
-					}
-					return arr;
-				}, []),
-			]
-		}
-		return arr; 
-	},[])
-}
+// Returns an array of list items which is board and list specific
+const selectListItems = (state, listId, boardId) => [
+	...state.boards.find(board => board.id === boardId).lists.find(list => list.id === listId).items,
+];
 
 export default reducer;
 

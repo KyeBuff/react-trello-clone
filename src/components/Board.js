@@ -32,20 +32,20 @@ class Board extends Component {
 	}	
 
 	render() {
-		const { lists, id, boardName } = this.props.board;
+		const { board } = this.props;
 		// Show 404 if no board using id
 		return (
 			<div>
-				{id ? 
+				{this.props.board ? 
 				<section className="section-board">
-					<h2>{boardName}</h2>
+					<h2>{board.boardName}</h2>
 					<div className="board-lists">
-					{	lists ? 
-							lists.map(list => {
+					{	board.lists ? 
+							board.lists.map(list => {
 								return <BoardList 
 									key={list.id} 
 									name={list.name} 
-									boardId={id} 
+									boardId={board.id} 
 									listId={list.id}
 								/>
 							})
