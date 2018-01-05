@@ -63,7 +63,9 @@ let listItemId = 1;
 
 const addListItem = (state, itemValue, boardId, listId) => {
 
-	const board = state.boards.find(board => board.id === boardId);
+	const boards = [...state.boards];
+
+	const board = boards.find(board => board.id === boardId);
 
 	const list = board.lists.find(list => list.id === listId);
 
@@ -74,11 +76,11 @@ const addListItem = (state, itemValue, boardId, listId) => {
 
 	list.items.push(listItem);
 
-	const boards = state.boards.map(b => board.id === boardId ? board : b);
+	const newBoards = state.boards.map(b => b.id === boardId ? board : b);
 
 	return {
 		...state,
-		boards,
+		newBoards,
 	}
 }
 
