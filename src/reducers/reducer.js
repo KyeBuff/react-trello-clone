@@ -57,19 +57,29 @@ const addListToBoard = (state, listName, boardId) => {
 	};
 }
 
+// Local id controlling variable for list items
+
+let listItemId = 1;
+
 const addListItem = (state, itemValue, boardId, listId) => {
 
 	const board = state.boards.find(board => board.id === boardId);
 
-	console.log(board);
-
 	const list = board.lists.find(list => list.id === listId);
 
-	list.items.push(itemValue);
+	const listItem = {
+		id: listItemId++,
+		value: itemValue,
+	}
 
-	console.log(list);
+	list.items.push(listItem);
 
-	return state;
+	const boards = state.boards.map(b => board.id === boardId ? board : b);
+
+	return {
+		...state,
+		boards,
+	}
 }
 
 const reducer = (state=initialState, action) => {

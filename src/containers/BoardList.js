@@ -8,4 +8,26 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }	
 
-export default connect(null, mapDispatchToProps)(BoardList);
+const mapStateToProps = (state, {boardId, listId}) => {
+	return {
+		listItems: state.boards.reduce((arr, board) => {
+			if(board.id === boardId) {
+				return [
+					...arr,
+					...board.lists.reduce((arr, list) => {
+						if(list.id === listId) {
+							return [
+								...arr,
+								...list.items,
+							]
+						}
+						return arr;
+					}, []),
+				]
+			}
+			return arr; 
+		},[])
+	}
+}	
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoardList);

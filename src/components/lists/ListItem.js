@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ListItem = (props) => (
-	<li>Blah</li>
+	<li>{props.value}</li>
 );
 
 export default ListItem;

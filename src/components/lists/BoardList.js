@@ -10,13 +10,15 @@ const fields = [
 	}
 ];
 
-const BoardList = (props) => (
-	<section className="board-list-section">
+const BoardList = (props) => {
+	return (<section className="board-list-section">
 		<h2>{props.name}</h2>
 		<Form fields={fields} btnRequired={false} onSubmit={(fields) => props.onSubmit(fields, props.boardId, props.listId)} />
 		<ul className="board-list">
+			{props.listItems.map(item => <ListItem key={item.id} value={item.value}/>)}
 		</ul>
-	</section>
-);
+	</section>)
+}
 
 export default BoardList;
+

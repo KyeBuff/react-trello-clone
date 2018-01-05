@@ -29,7 +29,14 @@ class Board extends Component {
 		return (
 			<section className="section-board">
 				{	lists ? 
-						lists.map(list => <BoardList key={list.id} name={list.name} boardId={id} listId={list.id} />)
+						lists.map(list => {
+							return <BoardList 
+								key={list.id} 
+								name={list.name} 
+								boardId={id} 
+								listId={list.id}
+							/>
+						})
 					: null
 				}
 				{ !this.state.addingList ? 

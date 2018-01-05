@@ -25,6 +25,10 @@ class Form extends Component {
 
 		if(this.state.fields.every(field => field.value)) {
 			this.props.onSubmit(this.state.fields);
+			this.setState({fields: this.state.fields.map(field => {
+				field.value = "";
+				return field;
+			})})
 		}
 	}
 
