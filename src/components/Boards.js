@@ -28,11 +28,10 @@ class Boards extends Component {
 				{this.state.addingBoard ? 
 				<NewBoard onSubmit={this.onSubmit}/>
 				:
-				<BoardButton 
-					text="Create a new board..." 
+				<button
 					className="btn-board btn-board--new"
 					onClick={this.showAddBoard} 
-				/>
+				>Create a new board...</button>
 				}
 				{
 					this.props.boards.map((board, i) => {

@@ -2,11 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BoardButton = (props) => (
-	<button 
-		className={props.className} 
-		onClick={props.onClick}
-	>{props.text}
-	</button>
+	<Link className={props.className} to={"/" + props.href} >{props.text}</Link>
 );
 
 export default BoardButton;
