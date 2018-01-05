@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BoardButton from './buttons/BoardButton';
+import BoardLink from './buttons/BoardLink';
 import NewBoard from './NewBoard';
 
 class Boards extends Component {
@@ -9,11 +9,11 @@ class Boards extends Component {
 			addingBoard: false,
 		}
 
-		this.onSubmit = this.onSubmit.bind(this);
+		this.addBoard = this.addBoard.bind(this);
 		this.showAddBoard = this.showAddBoard.bind(this);
 	}
 
-	onSubmit(data) {
+	addBoard(data) {
 		this.props.addBoard(data);
 		this.setState({addingBoard: false})
 	}
@@ -27,7 +27,7 @@ class Boards extends Component {
 		return (
 			<nav className="boards-menu">
 				{this.state.addingBoard ? 
-				<NewBoard onSubmit={this.onSubmit}/>
+				<NewBoard onSubmit={this.addBoard}/>
 				:
 				<button
 					className="btn-board btn-board--new"
@@ -36,7 +36,12 @@ class Boards extends Component {
 				}
 				{
 					this.props.boards.map((board, i) => {
-						return <BoardButton key={i} text={board.boardName} href={"boards/"+board.id} className="btn-board" />
+						return <BoardLink 
+											key={i} 
+											text={board.boardName} 
+											href={"boards/"+board.id} 
+											className="btn-board" 
+										/>
 					})
 				}
 			</nav>

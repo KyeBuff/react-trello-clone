@@ -10,8 +10,6 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }	
 
-
-// CONVERT SELECTORS
 const mapStateToProps = (state, {listId, boardId}) => {
 	return {
 		listItems: selectListItems(state, listId, boardId)

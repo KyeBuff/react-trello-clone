@@ -134,7 +134,8 @@ input {
 
 }
 
-.form-new-board {
+.form-new-board,
+.form-new-list {
 	flex: .1 1 25%;
 
 	position: relative;

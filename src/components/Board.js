@@ -41,21 +41,20 @@ class Board extends Component {
 					<h2>{board.boardName}</h2>
 					<div className="board-lists">
 					{	board.lists ? 
-							board.lists.map(list => {
-								return <BoardList 
+							board.lists.map(list => (<BoardList 
 									key={list.id} 
 									name={list.name} 
 									boardId={board.id} 
 									listId={list.id}
 								/>
-							})
+							))
 						: null
 					}
 					{ !this.state.addingList ? 
 						/*Toggle between button to add list and form to add new list*/
 						<AddListButton onClick={this.showListForm} />
 						:
-						<section className="form-new-board">
+						<section className="form-new-list">
 							<Form 
 								fields={fields} 
 								submitText="Add list" 
