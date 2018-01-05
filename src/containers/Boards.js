@@ -1,10 +1,11 @@
 import Boards from '../components/Boards';
 import { connect } from 'react-redux';
 import {addNewBoard} from '../actions/actions';
+import {selectBoards} from '../reducers/reducer';
 
 const mapStateToProps = state => {
 	return {
-		boards: state.boards,
+		boards: selectBoards(state),
 	}
 }	
 

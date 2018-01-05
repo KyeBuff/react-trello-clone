@@ -112,7 +112,9 @@ const reducer = (state=initialState, action) => {
 
 // Selectors
 
-const fetchBoard = (state, boardId) => {
+const selectBoards = state => state.boards;
+
+const selectBoard = (state, boardId) => {
 	return state.boards.reduce((ob, board) => {
 		if(board.id === +boardId) {
 			return {
@@ -121,11 +123,33 @@ const fetchBoard = (state, boardId) => {
 			}
 		}
 		return ob;
-	});
+	}, []);
+}
+
+const selectListItems = (state, listId, boardId) => {
+	return state.boards.reduce((arr, board) => {
+		if(board.id === boardId) {
+			return [
+				...arr,
+				...board.lists.reduce((arr, list) => {
+					if(list.id === listId) {
+						return [
+							...arr,
+							...list.items,
+						]
+					}
+					return arr;
+				}, []),
+			]
+		}
+		return arr; 
+	},[])
 }
 
 export default reducer;
 
 export {
-	fetchBoard
+	selectBoards,
+	selectBoard,
+	selectListItems
 }

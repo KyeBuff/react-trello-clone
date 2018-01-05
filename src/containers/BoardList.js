@@ -1,6 +1,7 @@
 import BoardList from '../components/lists/BoardList';
 import { connect } from 'react-redux';
 import { addListItem, toggleItemComplete } from '../actions/actions';
+import {selectListItems} from '../reducers/reducer';
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -11,25 +12,9 @@ const mapDispatchToProps = (dispatch) => {
 
 
 // CONVERT SELECTORS
-const mapStateToProps = (state, {boardId, listId}) => {
+const mapStateToProps = (state, {listId, boardId}) => {
 	return {
-		listItems: state.boards.reduce((arr, board) => {
-			if(board.id === boardId) {
-				return [
-					...arr,
-					...board.lists.reduce((arr, list) => {
-						if(list.id === listId) {
-							return [
-								...arr,
-								...list.items,
-							]
-						}
-						return arr;
-					}, []),
-				]
-			}
-			return arr; 
-		},[])
+		listItems: selectListItems(state, listId, boardId)
 	}
 }	
 
