@@ -29,7 +29,7 @@ class Form extends Component {
 
 			//Set all field values to empty on submit
 			this.setState({fields: this.state.fields.map(field => {
-				field.value = null;
+				field.value = '';
 				return field;
 			})})
 		}

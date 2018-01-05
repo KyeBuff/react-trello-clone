@@ -2,10 +2,13 @@ const initialState = {
 	boards: [],
 }
 
+// local id variable to simulate id generation in a db
 let lastId = 1;
-let lastListId = 1;
 
+// Add news board to boards array
 const addNewBoard = (state, data) => {
+	//Spread to maintain existing values in state.
+	//Take existing boards arr elements and append a new board object
 	return {
 		...state,
 		boards: [
@@ -19,15 +22,20 @@ const addNewBoard = (state, data) => {
 	};
 }
 
+// local id variable to simulate id generation in a db
+let lastListId = 1;
+
+// Adds new list to board targeting board with it's id
 const addListToBoard = (state, listName, boardId) => {
 
 	const list = {
 		id: lastListId++,
 		name: listName,
 		items: [],
-	}
+	},
 
-	const withListArr = state.boards.map(board => {
+	//Map over boards and add list to board when id matches
+	boardsWithListArr = state.boards.map(board => {
 		if(board.id === +boardId) {
 			board.lists.push(list)
 		}
@@ -36,7 +44,7 @@ const addListToBoard = (state, listName, boardId) => {
 
 	return {
 		...state,
-		boards: withListArr,
+		boards: boardsWithListArr,
 	};
 }
 
@@ -44,58 +52,52 @@ const addListToBoard = (state, listName, boardId) => {
 
 let listItemId = 1;
 
+// Adds list item to a specific list within a board. boardId and listId required for targeting
 const addListItem = (state, itemValue, boardId, listId) => {
 
-	const boards = [...state.boards];
+	//spread maintains immutability
+	const boards = [...state.boards],
 
-	const board = boards.find(board => board.id === boardId);
-
-	const list = board.lists.find(list => list.id === listId);
-
-	const listItem = {
+	listItem = {
 		id: listItemId++,
 		value: itemValue,
 		complete: false,
-	}
+	},
 
-	list.items.push(listItem);
-
-	const newBoards = state.boards.map(b => b.id === boardId ? board : b);
+	//Map over boards and target id of board and list to update the boards list items
+	boardsWithListItem = boards.map(board => {
+		if(board.id === boardId) {
+			board.lists.find(list => list.id === listId).items.push(listItem);
+		}
+		return board;
+	});
 
 	return {
 		...state,
-		boards: newBoards,
+		boards: boardsWithListItem,
 	}
 }
 
 const toggleItemComplete = (state, itemId, listId, boardId) => {
 
-	const boards = [...state.boards];
+	const boards = [...state.boards],
 
-	const board = boards.find(board => board.id === boardId);
-
-	let boardLists = board.lists;
-
-	const list = boardLists.find(list => list.id === listId);
-
-	const listItems = list.items;
-
-	const newListItems = listItems.map(item => {
-		if(item.id === itemId) {
-			item.complete = !item.complete;
+	//Map over boards and target id of board, list and item to toggle the items complete status
+	boardsWithItemComplete = boards.map(board => {
+		if(board.id === boardId) {
+			board.lists.find(list => list.id === listId).items.map(item => {
+				if(item.id === itemId) {
+					item.complete = !item.complete;
+				}
+				return item;
+			}); 
 		}
-		return item;
+		return board;
 	});
-
-	list.items = newListItems;
-
-	board.lists = boardLists.map(l => l.id === listId ? list : l);
-
-	const newBoards = state.boards.map(b => b.id === boardId ? board : b);
 
 	return {
 		...state,
-		boards: newBoards,
+		boards: boardsWithItemComplete,
 	}
 }
 
