@@ -26,9 +26,11 @@ class Board extends Component {
 	}	
 
 	render() {
-		const { lists, id } = this.props.board;
+		const { lists, id, boardName } = this.props.board;
 		return (
 			<section className="section-board">
+				<h2>{boardName}</h2>
+				<div className="board-lists">
 				{	lists ? 
 						lists.map(list => {
 							return <BoardList 
@@ -47,6 +49,7 @@ class Board extends Component {
 						<Form fields={fields} submitText="Add list" onSubmit={this.onSubmit} submitClass="new-board-submit" btnRequired={true} />
 					</section>
 				}
+				</div>
 			</section>
 		)
 	}

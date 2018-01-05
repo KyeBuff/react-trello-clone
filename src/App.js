@@ -13,7 +13,10 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Link className="btn-home" to="/"></Link>
+        <header className="header">
+          <h1>Trello clone</h1>
+          <Link className="btn-home" to="/"></Link>
+        </header> 
         <Switch>
           <Route exact path="/" component={Boards} />
           <Route path="/new" component={NewBoard} />
