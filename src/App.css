@@ -160,7 +160,6 @@ input {
 	background-image: url("assets/images/tick-gray.png");
 }
 
-
 /* Nav */
 
 .boards-menu {
@@ -305,6 +304,8 @@ input {
 
 		font-size: 2.5em;
 	}
+
+	/* < Tablet layout styling */
 	.form-new-board,
 	.btn-add-list,
 	.board-list-section,
