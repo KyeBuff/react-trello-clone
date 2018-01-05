@@ -85,13 +85,15 @@ ul {
 
 .btn-add-list {
 	flex: .1 1 25%;
+
+	border: none;
 	min-height: 150px;
 	margin: 2% 1%;
 	padding: 1em;
 	width: 23%;
 
 	background-color: white;
-	border: none;
+	box-shadow: 3px 5px 10px #005486;
 
 	color: #434343;
 	font-size: 1.25em;
@@ -137,6 +139,7 @@ input {
 	width: 25%;
 
 	background-color: white;
+	box-shadow: 3px 5px 10px #005486;
 
 	overflow: auto;
 }
@@ -189,13 +192,14 @@ input {
 .board-list-section {
 	flex: 1 1 25%;
 
+	border: none;
+	box-sizing: border-box;
 	margin: 2% 1%;
 	min-height: 150px;
 	padding: 1em;
 
 	background-color: white;
-	border: none;
-	box-sizing: border-box;
+	box-shadow: 3px 5px 10px #005486;
 
 	color: #434343;
 	font-size: 1.25em;
