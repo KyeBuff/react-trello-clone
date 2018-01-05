@@ -205,16 +205,15 @@ input {
 	font-size: 1.25em;
 	letter-spacing: .050em;
 	text-align: center;
-	text-transform: uppercase;
 
 }
-
 .board-list-section h2 {
 	margin: 0;
 	font-family: Dosis;
 	font-size: 1.25em;
 
 	color: #434343;
+	text-transform: uppercase;
 }
 
 .board-list-item {
@@ -228,7 +227,6 @@ input {
 	font-family: Dosis;
 	font-size: .75em;
 	text-align: left;
-	text-transform: lowercase;
 }
 
 .board-list-item-complete {
@@ -238,4 +236,16 @@ input {
 .btn-item {
 	position: absolute;
 	right: 5%;
+}
+
+@media (max-width: 768px) {
+	.btn-add-list {
+		flex: .1 1 100%;
+	}
+	.board-list-section {
+		flex: 1 1 100%;	
+	}
+	.btn-board {
+		flex: 1 1 100%;
+	}
 }
