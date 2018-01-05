@@ -1,4 +1,7 @@
 body {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0086D7), to(#0068A7));
+	background-image: -webkit-linear-gradient(#0086D7, #0068A7);
+	background-image: -o-linear-gradient(#0086D7, #0068A7);
 	background-image: linear-gradient(#0086D7, #0068A7);
 	background-size: cover;
 	margin: 0;
@@ -40,7 +43,8 @@ label, input {
 }
 
 input {
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	margin: 1.5em 0;
 	padding: .5em;
 }
@@ -48,7 +52,8 @@ input {
 /* Container */
 
 .container { 
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box; 
+	        box-sizing: border-box;
 	margin: 0 auto;
 	max-width: 1000px;
 	padding: 2em;
@@ -59,15 +64,21 @@ input {
 .header,
 .boards-menu,
 .board-lists {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: flex-start;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
 }
 
 /* Header */
 
 .header h1 {
 	/*Header to sit to right of home button, but semantically is before button*/
-	order: 1;
+	-webkit-box-ordinal-group: 2;
+	    -ms-flex-order: 1;
+	        order: 1;
 
 	margin: 0 0 0 1em;
 
@@ -94,13 +105,18 @@ input {
 }
 
 .btn-board {
-	flex: 1 1 25%;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 1 25%;
+	        flex: 1 1 25%;
 
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+
+	        box-sizing: border-box;
 	padding: 2em .5em;
 
 	background-color: white;
-	box-shadow: 3px 5px 10px #005486;
+	-webkit-box-shadow: 3px 5px 10px #005486;
+	        box-shadow: 3px 5px 10px #005486;
 
 }
 
@@ -115,7 +131,9 @@ input {
 }
 
 .btn-board--new {
-	flex: .25 1 25%;
+	-webkit-box-flex: .25;
+	    -ms-flex: .25 1 25%;
+	        flex: .25 1 25%;
 
 	background-color: #51BC70;
 
@@ -123,7 +141,9 @@ input {
 }
 
 .btn-add-list {
-	flex: .1 1 25%;
+	-webkit-box-flex: .1;
+	    -ms-flex: .1 1 25%;
+	        flex: .1 1 25%;
 
 	border: none;
 	min-height: 150px;
@@ -131,7 +151,8 @@ input {
 	width: 23%;
 
 	background-color: #51BC70;
-	box-shadow: 3px 5px 10px #434343;
+	-webkit-box-shadow: 3px 5px 10px #434343;
+	        box-shadow: 3px 5px 10px #434343;
 
 	color: white;
 }
@@ -163,14 +184,17 @@ input {
 /* Nav */
 
 .boards-menu {
-	flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 
 /* Forms */
 
 .form-new-board,
 .form-new-list {
-	flex: .1 1 25%;
+	-webkit-box-flex: .1;
+	    -ms-flex: .1 1 25%;
+	        flex: .1 1 25%;
 
 	position: relative;
 
@@ -179,7 +203,8 @@ input {
 	width: 25%;
 
 	background-color: white;
-	box-shadow: 3px 5px 10px #005486;
+	-webkit-box-shadow: 3px 5px 10px #005486;
+	        box-shadow: 3px 5px 10px #005486;
 
 	overflow: auto;
 }
@@ -233,20 +258,25 @@ input {
 
 /* Board lists */
 .board-lists {
-	flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 
 .board-list-section {
-	flex: 1 1 25%;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 1 25%;
+	        flex: 1 1 25%;
 
 	border: none;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	margin: 2% 1%;
 	min-height: 150px;
 	padding: 1em;
 
 	background-color: white;
-	box-shadow: 3px 5px 10px #434343;
+	-webkit-box-shadow: 3px 5px 10px #434343;
+	        box-shadow: 3px 5px 10px #434343;
 
 	color: #434343;
 	font-size: 1.25em;
@@ -310,10 +340,11 @@ input {
 	.btn-add-list,
 	.board-list-section,
 	.btn-board {
-		flex: .1 1 100%;
+		-webkit-box-flex: .1;
+		    -ms-flex: .1 1 100%;
+		        flex: .1 1 100%;
 	}
 	.btn-board {
 		margin: 2% 0;
 	}
 }
-
