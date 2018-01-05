@@ -27,6 +27,8 @@ ul {
 
 .container { 
 	box-sizing: border-box;
+	margin: 0 auto;
+	max-width: 1000px;
 	padding: 3em;
 }
 
@@ -92,10 +94,10 @@ ul {
 	padding: 1em;
 	width: 23%;
 
-	background-color: white;
-	box-shadow: 3px 5px 10px #005486;
+	background-color: #51BC70;
+	box-shadow: 3px 5px 10px #434343;
 
-	color: #434343;
+	color: white;
 	font-size: 1.25em;
 	letter-spacing: .050em;
 	text-align: center;
@@ -165,7 +167,7 @@ input {
 
 	background-color: transparent;
 
-	color: black;
+	color: #434343;
 	font-size: 1.5em;
 	text-transform: uppercase;
 
@@ -173,9 +175,18 @@ input {
 
 /* Board section */
 
+.section-board {
+	background-color: #BFE1F5;
+	border: 5px solid white;
+	margin-top: 5%;
+	padding: 5%;
+}
+
 .section-board h2 {
 
-	color: white;
+	margin-top: 0;
+
+	color: #434343;
 	font-family: Dosis;
 	font-size: 2em;
 	text-align: center;
@@ -199,7 +210,7 @@ input {
 	padding: 1em;
 
 	background-color: white;
-	box-shadow: 3px 5px 10px #005486;
+	box-shadow: 3px 5px 10px #434343;
 
 	color: #434343;
 	font-size: 1.25em;
@@ -222,20 +233,37 @@ input {
 	margin: 5% 0;
 	padding: 3% 5%;
 
-	background-color: lightgreen;
-
+	background-color: #DDA920;
+	color: white;
 	font-family: Dosis;
-	font-size: .75em;
+	font-size: 1em;
 	text-align: left;
 }
 
 .board-list-item-complete {
-	background-color: gray;
+	background-color: #51BC70;
 }
 
 .btn-item {
 	position: absolute;
 	right: 5%;
+
+	height: 25px;
+	width: 25px;
+
+	background-color: transparent;
+}
+
+.btn-item-incomplete {
+	background-image: url("assets/images/tick.png");
+	background-position: 0;
+	background-size: cover;
+}
+
+.btn-item-complete {
+	background-image: url("assets/images/tick-gray.png");
+	background-position: 0;
+	background-size: cover;
 }
 
 @media (max-width: 768px) {
