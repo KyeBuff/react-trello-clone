@@ -200,7 +200,6 @@ input {
 
 	margin: 2% 0;
 	padding: 1em;
-	width: 25%;
 
 	background-color: white;
 	-webkit-box-shadow: 3px 5px 10px #005486;
@@ -337,6 +336,7 @@ input {
 
 	/* < Tablet layout styling */
 	.form-new-board,
+	.form-new-list,
 	.btn-add-list,
 	.board-list-section,
 	.btn-board {
